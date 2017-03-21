@@ -10,6 +10,7 @@ Subgraph's macouflage application.
 
 # Usage
 ```
+$ wget -o data/oui.txt http://standards.ieee.org/develop/regauth/oui/oui.txt
 $ python ouiner.py > ouis.json
 ```
 

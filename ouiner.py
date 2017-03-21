@@ -9,7 +9,7 @@ class OuiDb:
     def parse_common(self):
         with open('data/oui.txt', 'r') as oui_file:
             for row in oui_file:
-                entry_match = re.search(r'.+([0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2})[\s]+\(hex\)[\s]+(.+)$', row)   
+                entry_match = re.search(r'([0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2})[\s]+\(hex\)[\s]+(.+)$', row)   
                 if entry_match:
                     entry = OuiEntry()
                     entry.vendor_prefix = entry_match.group(1).replace("-", ":")
@@ -71,5 +71,5 @@ class OuiEntry:
 if __name__ == '__main__':
     ouidb = OuiDb()
     ouidb.parse_common()
-    ouidb.parse_popular()
+    # ouidb.parse_popular()
     print(ouidb.dump())
